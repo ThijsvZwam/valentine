@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine? 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #B22222 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rose-border {
+            position: fixed;
+            font-size: 2.5rem;
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        .rose-top {
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        .rose-bottom {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        .rose-left {
+            left: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        .rose-right {
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        .rose-border span {
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        .rose-border span:nth-child(2n) {
+            animation-delay: 0.5s;
+        }
+
+        .rose-border span:nth-child(3n) {
+            animation-delay: 1s;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .gif-container {
+            margin: 2rem 0;
+        }
+
+        .gif-container img {
+            max-width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #FF1744 0%, #D50000 100%);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        #noBtn {
+            background: white;
+            color: #8B0000;
+        }
+
+        #noBtn:hover {
+            background: #f5f5f5;
+        }
+
+        .success-page {
+            display: none;
+            text-align: center;
+        }
+
+        .success-page h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-page .hearts {
+            font-size: 3rem;
+            animation: heartBeat 1s ease-in-out infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+
+        .celebration {
+            font-size: 2rem;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+<!-- Rose decorations -->
+<div class="rose-border rose-top">
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+</div>
+<div class="rose-border rose-bottom">
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+</div>
+<div class="rose-border rose-left">
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+</div>
+<div class="rose-border rose-right">
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+    <span>🌹</span>
+</div>
+
+<div class="container">
+    <div id="questionPage">
+        <h1>Will you be my Valentine? 💝</h1>
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHB5aGN6OXZ6dHZpYzFxOXJ6MWJzZnBhZTB6MnVxYnRoaWJlYnRobyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" alt="Cute puppy" id="mainGif">
+        </div>
+        <div class="button-container">
+            <button id="yesBtn">Yes! 💕</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <div id="successPage" class="success-page">
+        <h1>I LOVE YOU BABYYY!</h1>
+        <div class="hearts">💖 💝 💗 💓 💕</div>
+        <div class="gif-container">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemswN2ZjaG1jeG1ybjU1eHNwYXg5eGg1Zml4c2o4eHNrOHVtcXZqZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KmxmoHUGPDjfQXqGgv/giphy.gif" alt="Celebration">
+        </div>
+        <p class="celebration">I knew you'd say yes! :P 💖</p>
+    </div>
+</div>
+
+<script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const questionPage = document.getElementById('questionPage');
+    const successPage = document.getElementById('successPage');
+    const mainGif = document.getElementById('mainGif');
+
+    let yesBtnSize = 1;
+    let clickCount = 0;
+
+    const sadGifs = [
+        'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHB5aGN6OXZ6dHZpYzFxOXJ6MWJzZnBhZTB6MnVxYnRoaWJlYnRobyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif',
+        'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGl2anhjbXk4Y2o2anBpZzd5N3pyNm9tcndqOGN2ajVrZWMzcWVybyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L95W4wv8nnb9K/giphy.gif',
+        'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHd4cHRlcXhhYmozNmg3NjBmczA2MWdsYmZ0ZDY2YndjdGFhZmN5diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ISOckXUybVfQ4/giphy.gif'
+    ];
+
+    noBtn.addEventListener('click', () => {
+        yesBtnSize += 0.5;
+        yesBtn.style.transform = `scale(${yesBtnSize})`;
+
+        clickCount++;
+        if (clickCount < sadGifs.length) {
+            mainGif.src = sadGifs[clickCount];
+        }
+    });
+
+    yesBtn.addEventListener('click', () => {
+        questionPage.style.display = 'none';
+        successPage.style.display = 'block';
+    });
+</script>
+</body>
+</html>
